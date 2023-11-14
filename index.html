@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" src="estilos.css">
+    <title>CRUD Example</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    
+    <form action="/add" method="POST">
+        <label for="task">Task:</label>
+        <input type="text" name="task" required>
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+        <label for="lastname">Last Name:</label>
+        <input type="text" name="lastname" required>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <ul>
+        {% for todo in todos %}
+            <li>
+                Task: {{ todo.task }},
+                Name: {{ todo.name }},
+                Last Name: {{ todo.lastname }},
+                Email: {{ todo.email }}
+                <a href="/delete/{{ todo.id }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
